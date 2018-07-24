@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.how2java.mapper.CategoryMapper;
 import com.how2java.pojo.Category;
 import com.how2java.service.CategoryService;
+import com.how2java.util.Page;
 
 /** 
  * @author  xiaomingHe
@@ -25,5 +26,16 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> list() {
         return mapper.list();
     }
+
+    @Override
+    public int total() {
+        return mapper.total();
+    }
+
+    @Override
+    public List<Category> list(Page page) {
+        return mapper.list(page);
+    }
+    
     
 }

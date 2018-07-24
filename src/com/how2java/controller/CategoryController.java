@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.how2java.pojo.Category;
 import com.how2java.service.CategoryService;
+import com.how2java.util.Page;
 
 /** 
  * @author  xiaomingHe
@@ -23,9 +24,13 @@ public class CategoryController {
     CategoryService service;
     
     @RequestMapping("listCategory")
-    public ModelAndView listCategory(){
+    public ModelAndView listCategory(Page page){
         ModelAndView mav = new ModelAndView();
-        List<Category> cs = service.list();
+        List<Category> cs = service.list(page);
+        
+        int total = service.total();
+        
+        page.calculateLast(total);
         
         mav.addObject("cs",cs);
         
