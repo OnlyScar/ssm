@@ -1,15 +1,12 @@
 package com.how2java.test;
 
-import java.util.List;
-
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.how2java.mapper.CategoryMapper;
-import com.how2java.pojo.Category;
-import com.how2java.util.Page;
+import com.how2java.service.CategoryService;
 
 /** 
  * @author  xiaomingHe
@@ -23,6 +20,9 @@ public class Test {
     
     @Autowired
     private CategoryMapper mapper;
+    
+    @Autowired
+    private CategoryService service;
     
  /*   @org.junit.Test
     public void testAdd() {
@@ -44,13 +44,20 @@ public class Test {
     
     @org.junit.Test
     public void testListPage() {
-        Page p = new Page();
+       /* Page p = new Page();
         p.setStart(0);
         p.setCount(5);
         List<Category> cs=mapper.list(p);
         for (Category c : cs) {
             System.out.println(c.getName());
-        }
+        }*/
      }
+    
+    @org.junit.Test
+    public void testAddTwo(){
+        service.deleteAll();
+        service.addTwo();
+    }
+    
     
 }
