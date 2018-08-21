@@ -6,6 +6,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.how2java.mapper.CategoryMapper;
+import com.how2java.pojo.Category;
 import com.how2java.service.CategoryService;
 
 /** 
@@ -24,13 +25,14 @@ public class Test {
     @Autowired
     private CategoryService service;
     
- /*   @org.junit.Test
+    @org.junit.Test
     public void testAdd() {
-        Category c = new Category();
-        c.setName("new c");
-        mapper.add(c);
-        
-    }*/
+        for (int i = 0; i < 100; i++) {
+            Category c = new Category();
+            c.setName("new category"+i);
+            mapper.add(c);
+        }
+    }
     
    /* @org.junit.Test
     public void testList(){
@@ -53,11 +55,11 @@ public class Test {
         }*/
      }
     
-    @org.junit.Test
+    /*@org.junit.Test
     public void testAddTwo(){
         service.deleteAll();
         service.addTwo();
-    }
+    }*/
     
     
 }

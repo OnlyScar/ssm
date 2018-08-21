@@ -46,4 +46,33 @@ public class CategoryController {
         return mav;
     }
     
+    @RequestMapping("addCategory")
+    public ModelAndView addCategory(Category c){
+        service.add(c);
+        ModelAndView mav = new ModelAndView("redirect:/listCategory");
+        return mav;
+    }
+    
+    @RequestMapping("deleteCategory")
+    public ModelAndView deleteCategory(Category c) {
+        service.delete(c);
+        ModelAndView mav = new ModelAndView("redirect:/listCategory");
+        return mav;
+    }
+    
+    @RequestMapping("editCategory")
+    public ModelAndView editCategory(Category category){
+        Category c = service.get(category.getId());
+        ModelAndView mav = new ModelAndView("editCategory");
+        mav.addObject("c",c);
+        return mav;
+    }
+    
+    @RequestMapping("updateCategory")
+    public ModelAndView updateCategory(Category c){
+        service.update(c);
+        ModelAndView mav = new ModelAndView("redirect:/listCategory");
+        return mav;
+    }
+    
 }

@@ -50,6 +50,26 @@ public class CategoryServiceImpl implements CategoryService {
         }
     }
 
+    @Override
+    public void add(Category c) {
+        mapper.add(c);
+    }
+
+    @Override
+    public void update(Category c) {
+        mapper.update(c);
+    }
+
+    @Override
+    public void delete(Category c) {
+        mapper.delete(c.getId());
+    }
+
+    @Override
+    public Category get(int id) {
+        return mapper.get(id);
+    }
+
 /*    @Override
     public int total() {
         return mapper.total();
